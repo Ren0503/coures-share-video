@@ -11,7 +11,7 @@ export const getVideos: RequestHandler = async (req, res) => {
                 },
             }
             : {}
-        const videos = await Video.find({ ...keyword })
+        const videos = await Video.find({ ...keyword }).sort({createdAt: -1})
 
         return res.json(videos)
     } catch (error) {
