@@ -31,10 +31,10 @@ const Footer = () => {
                     <div className="p-5 tm-bg-gray h-100">
                         <h3 className="tm-text-primary mb-4">Our Pages</h3>
                         <ul className="list-unstyled tm-footer-links">
-                            <li><a href="#">Our Videos</a></li>
+                            <li><a href="/auth/video_list">Our Videos</a></li>
                             <li><a href="#">License Terms</a></li>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/contact">Contact</a></li>
                             <li><a href="#">Privacy Policies</a></li>
                         </ul>
                     </div>

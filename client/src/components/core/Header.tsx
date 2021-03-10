@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from './Navbar'
-import '../../assets/styles/Header.css'
 
 const Header = () => {
     return (
@@ -12,7 +11,7 @@ const Header = () => {
                         <div className="col-7 col-md-4">
                             <Link to='/' className="tm-bg-black text-center tm-logo-container">
                                 <i className="fas fa-video tm-site-logo mb-3" />
-                                <h1 className="tm-site-name">Video Catalog</h1>
+                                <h1 className="tm-site-name">Courses Catalog</h1>
                             </Link>
                         </div>
                         <div className="col-5 col-md-8 ml-auto mr-0">

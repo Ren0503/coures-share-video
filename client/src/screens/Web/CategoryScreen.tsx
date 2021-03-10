@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 import * as videoService from '../../services/videoServices'
-import VideoItem from '../../components/video/VideoItem'
 import { Video } from '../../@types/Video'
 
 import Lottie from 'lottie-react-web'
 import notFound from '../../assets/animated/404.json'
 
-const HomeScreen = () => {
+interface Params {
+    keyword?: string
+}
+
+const CategoryScreen = () => {
     const [loading, setLoading] = useState(true)
     const [videos, setVideos] = useState<Video[]>([])
     const [limit, setLimit] = useState(6)
@@ -16,9 +19,10 @@ const HomeScreen = () => {
     const showMoreDocuments = () => {
         setLimit(limit + 3)
     }
+    const params = useParams<Params>()
 
-    const loadVideos = async () => {
-        const res = await videoService.getVideos()
+    const loadVideos = async (keyword: string) => {
+        const res = await videoService.getVideosCategory(keyword)
 
         const formatVideos = res.data.map((video) => {
             return {
@@ -33,8 +37,9 @@ const HomeScreen = () => {
     }
 
     useEffect(() => {
-        loadVideos()
-    }, [])
+        if (params.keyword)
+            loadVideos(params.keyword)
+    }, [params.keyword])
 
     if (loading)
         return (
@@ -50,7 +55,7 @@ const HomeScreen = () => {
     if (videos.length === 0)
         return <div>
             There are no courses yet
-            <Lottie options={{ animationData: notFound }} />
+            <Lottie options={{ animationData: notFound}} />
         </div>
 
     return (
@@ -82,7 +87,17 @@ const HomeScreen = () => {
             </div>
             <div className="row tm-catalog-item-list">
                 {videos.slice(0, limit).map((video) => (
-                    <VideoItem video={video} key={video._id} loadVideos={loadVideos} />
+                    <div className="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                        <div className="position-relative tm-thumbnail-container">
+                            <img src={video.image} alt="Image" className="img-fluid tm-catalog-item-img" />
+                            <Link to={`/detail/${video._id}`} className="position-absolute tm-img-overlay">
+                                <i className="fas fa-play tm-overlay-icon" />
+                            </Link>
+                        </div>
+                        <div className="p-4 tm-bg-gray tm-catalog-item-description">
+                            <h3 className="tm-text-primary mb-3 tm-catalog-item-title">{video.title}</h3>
+                        </div>
+                    </div>
                 ))}
             </div>
             <button
@@ -96,4 +111,4 @@ const HomeScreen = () => {
     )
 }
 
-export default HomeScreen
+export default CategoryScreen

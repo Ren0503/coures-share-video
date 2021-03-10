@@ -1,5 +1,10 @@
 import React from 'react'
 
+import author1 from '../../assets/images/brad_traversy.jpg'
+import author2 from '../../assets/images/zubin_pratap.jpg'
+import author3 from '../../assets/images/victoria_drake.jpg'
+import author4 from '../../assets/images/yazeed_bzadough.jpg'
+
 const ContactScreen = () => {
     return (
         <div className="container-fluid px-0">
@@ -51,7 +56,9 @@ const ContactScreen = () => {
                     </div>
                 </div>
             </div>
-            <div className="parallax-window parallax-window-2" data-parallax="scroll" data-image-src="img/contact-2.jpg" />
+
+            <div className="parallax-window" id="tm-contact-img-2"></div>
+
             <div className="mx-auto tm-content-container mt-4 px-3 mb-3">
                 <div className="row">
                     <div className="col-12">
@@ -61,7 +68,7 @@ const ContactScreen = () => {
                 <div className="row">
                     <div className="col-lg-6 mb-5 pt-3">
                         <div className="media tm-testimonial">
-                            <img className="mr-4 rounded-circle img-fluid" src="img/testimonial-1.jpg" alt="Generic placeholder image" />
+                            <img className="mr-4 rounded-circle img-fluid" src={author1} alt="Generic placeholder image" height="200" width="200" />
                             <p className="media-body pt-3 tm-testimonial-text">
                                 Vestibulum non lectus id lacus aliquet porttitor in non nulla. Aenean urna diam, finibys id lorem nec, feugiat convallis dolor. Integer aliquam, eros eget rutrum iaculis.
                             </p>
@@ -69,7 +76,7 @@ const ContactScreen = () => {
                     </div>
                     <div className="col-lg-6 mb-5 pt-3">
                         <div className="media tm-testimonial">
-                            <img className="mr-4 rounded-circle img-fluid" src="img/testimonial-2.jpg" alt="Generic placeholder image" />
+                            <img className="mr-4 rounded-circle img-fluid" src={author2} alt="Generic placeholder image" height="200" width="200"/>
                             <p className="media-body pt-3 tm-testimonial-text">
                                 Maecenas et libero in eros laoreet finibus sed vitae diam. Etiam consetetur, nunc sed pretium elementum, diam erat fringilla tortor, placerat condimentum.
                             </p>
@@ -77,7 +84,7 @@ const ContactScreen = () => {
                     </div>
                     <div className="col-lg-6 mb-5 pt-3">
                         <div className="media tm-testimonial">
-                            <img className="mr-4 rounded-circle img-fluid" src="img/testimonial-3.png" alt="Generic placeholder image" />
+                            <img className="mr-4 rounded-circle img-fluid" src={author3} alt="Generic placeholder image" height="200" width="200"/>
                             <p className="media-body pt-3 tm-testimonial-text">
                                 Aliquam tristique ut magna sit amet tincidunt. Sed tempor tellus nulla, molestie luctus lectus tincidunt id. Cras duismod leo a urna placerat, vel blandit turpis fermentum.
                             </p>
@@ -85,7 +92,7 @@ const ContactScreen = () => {
                     </div>
                     <div className="col-lg-6 mb-5 pt-3">
                         <div className="media tm-testimonial">
-                            <img className="mr-4 rounded-circle img-fluid" src="img/testimonial-4.png" alt="Generic placeholder image" />
+                            <img className="mr-4 rounded-circle img-fluid" src={author4} alt="Generic placeholder image" height="200" width="200"/>
                             <p className="media-body pt-3 tm-testimonial-text">
                                 Nulla suscipit posuere lectus ut venenatis. Proin sed orci eget tellus euismod vulputate eu eu arcu. Etiam a bibendum lorem. Cura
                             </p>
@@ -93,6 +100,7 @@ const ContactScreen = () => {
                     </div>
                 </div>
             </div>
+        
         </div>
 
     )

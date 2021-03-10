@@ -14,8 +14,8 @@ const Navbar = () => {
             <div className="collapse navbar-collapse tm-nav" id="navbar-nav">
                 <ul className="navbar-nav text-uppercase">
                     <li className="nav-item">
-                        <Link className="nav-link tm-nav-link" to="/">
-                            Video
+                        <Link className="nav-link tm-nav-link" to="/auth/video_list">
+                            Dashboard
                         </Link>
                     </li>
                     <li className="nav-item">

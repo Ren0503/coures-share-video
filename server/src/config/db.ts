@@ -1,4 +1,5 @@
 import mongoose, { ConnectionOptions } from 'mongoose'
+import config from './default'
 
 (async () => {
     try {
@@ -9,7 +10,7 @@ import mongoose, { ConnectionOptions } from 'mongoose'
         }
 
         const db = await mongoose.connect(
-            `mongodb://localhost:27017/moviedb`,
+            `${config.MONGO_URI}`,
             mongooseOptions
         )
 

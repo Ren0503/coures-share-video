@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import * as videoService from '../../services/videoServices'
 import VideoAuth from '../../components/video/VideoAuth'
 import { Video } from '../../@types/Video'
+
+import Lottie from 'lottie-react-web'
+import notFound from '../../assets/animated/404.json'
 
 const VideoListScreen = () => {
     const [loading, setLoading] = useState(true)
@@ -39,13 +43,34 @@ const VideoListScreen = () => {
         )
 
     if (videos.length === 0)
-        return <div>There are no videos yet</div>
+        return <div>
+            <Link to="/auth/create" className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Courses</Link>
+            There are no videos yet
+            <Lottie options={{ animationData: notFound }} />
+        </div>
 
     return (
-        <div className="row">
-            {videos.map((video) => (
-                <VideoAuth video={video} key={video._id} loadVideos={loadVideos} />
-            ))}
+        <div className="container">
+            <div className="row align-items-center">
+                <Link to="/auth/create" className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Create Courses</Link>
+                <table className="table">
+                    <caption>List of courses</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Views</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {videos.map((video, index) => (
+                            <VideoAuth index={index} video={video} key={video._id} loadVideos={loadVideos} />
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }

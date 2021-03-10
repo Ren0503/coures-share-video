@@ -6,6 +6,7 @@ import 'bootswatch/dist/pulse/bootstrap.min.css'
 import 'react-toastify/dist/ReactToastify.css'
 import 'animate.css/animate.min.css'
 import './assets/styles/video.min.css'
+import './assets/styles/style.css'
 
 import Header from './components/core/Header'
 import Footer from './components/core/Footer'
@@ -14,6 +15,7 @@ import HomeScreen from './screens/Web/HomeScreen'
 import AboutScreen from './screens/Web/AboutScreen'
 import DetailScreen from './screens/Web/DetailScreen'
 import ContactScreen from './screens/Web/ContactScreen'
+import CategoryScreen from './screens/Web/CategoryScreen'
 
 import VideoListScreen from './screens/Admin/VideoListScreen'
 import VideoEditScreen from './screens/Admin/VideoEditScreen'
@@ -29,8 +31,9 @@ function App() {
                         <Route path="/about" component={AboutScreen} />
                         <Route path="/contact" component={ContactScreen} />
                         <Route path="/detail/:id" component={DetailScreen} />
+                        <Route path="/category/:keyword" component={CategoryScreen} />
 
-                        <Route path="/auth/vide_list" component={VideoListScreen} />
+                        <Route path="/auth/video_list" component={VideoListScreen} />
                         <Route path="/auth/create" component={VideoEditScreen} />
                         <Route path="/auth/update/:id" component={VideoEditScreen} />
                     </Switch>

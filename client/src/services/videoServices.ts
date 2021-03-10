@@ -7,6 +7,10 @@ export const getVideos = async () => {
     return await axios.get<Video[]>(`${API}/videos`)
 }
 
+export const getVideosCategory = async (keyword: string)  => {
+    return await axios.get<Video[]>(`${API}/videos?keyword=${keyword}`)
+}
+
 export const getVideoById = async (id: string) => {
     return await axios.get<Video>(`${API}/videos/${id}`)
 }

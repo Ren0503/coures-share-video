@@ -52,7 +52,7 @@ const VideoEditScreen = () => {
 
     return (
         <div className="row">
-            <div className="col-md-4 offset-md-4">
+            <div className="col-md-8 m-auto">
                 <div className="card my-auto">
                     <div className="card-body">
                         <h3>New Video</h3>
@@ -73,7 +73,7 @@ const VideoEditScreen = () => {
                                 <input
                                     type="text"
                                     name="category"
-                                    placeholder="Write a Title for this video"
+                                    placeholder="Write a Category for this video"
                                     className="form-control"
                                     autoFocus
                                     onChange={handleInputChange}
@@ -85,7 +85,7 @@ const VideoEditScreen = () => {
                                 <input
                                     type="text"
                                     name="image"
-                                    placeholder="Write a Title for this video"
+                                    placeholder="Write a Image Url for this video"
                                     className="form-control"
                                     autoFocus
                                     onChange={handleInputChange}
@@ -97,7 +97,7 @@ const VideoEditScreen = () => {
                                 <input
                                     type="text"
                                     name="url"
-                                    placeholder="https://somesite.com"
+                                    placeholder="Write a Video Url for this video"
                                     className="form-control"
                                     onChange={handleInputChange}
                                     value={video.url}
